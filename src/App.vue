@@ -9,5 +9,7 @@ import TaskListView from './views/TaskListView.vue';
 </template>
 
 <style scoped>
-/* You can add component-specific styles here if needed */
+/* Component-specific styles for App.vue can be added here if needed.
+   Global styles are in style.css.
+*/
 </style>
