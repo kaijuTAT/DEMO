@@ -1,192 +1,192 @@
-/* Global styles for the application */
+/* 应用程序的全局样式 */
 body {
-  /* Defines properties related to the CSS Box Model */
-  margin: 0;
-  padding: 20px;
-  box-sizing: border-box;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+    /* 定义与 CSS 盒模型相关的属性 */
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 
-  /* Defines properties related to text styling */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* 定义与文本样式相关的属性 */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-  /* Defines properties for the element's own appearance */
-  /* Neon gradient background with animation */
-  background: linear-gradient(to right, #f0f, #0ff, #ff0); /* Vibrant neon colors */
-  background-size: 400% 400%; /* Make the gradient larger than the viewport */
-  animation: neon-gradient-animation 15s ease infinite; /* Animate the gradient */
+    /* 定义元素自身外观的属性 */
+    /* 带动画的霓虹渐变背景 */
+    background: linear-gradient(to right, #f0f, #0ff, #ff0); /* 鲜艳的霓虹色 */
+    background-size: 400% 400%; /* 使渐变大于视口 */
+    animation: neon-gradient-animation 15s ease infinite; /* 动画化渐变 */
 }
 
-/* Keyframes for the neon gradient animation */
+/* 霓虹渐变动画的关键帧 */
 @keyframes neon-gradient-animation {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-/* Styles for the main content container */
+/* 主内容容器的样式 */
 .container {
-  /* Defines properties related to the CSS Box Model */
-  padding: 40px;
-  max-width: 800px;
-  width: 100%;
-  box-sizing: border-box;
+    /* 定义与 CSS 盒模型相关的属性 */
+    padding: 40px;
+    max-width: 800px;
+    width: 100%;
+    box-sizing: border-box;
 
-  /* Defines properties for the element's own appearance */
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    /* 定义元素自身外观的属性 */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
-/* Styles for the main heading */
+/* 主标题的样式 */
 h1 {
-  /* Defines properties related to text styling */
-  color: #333;
-  text-align: center;
-  font-size: 2.5em;
+    /* 定义与文本样式相关的属性 */
+    color: #333;
+    text-align: center;
+    font-size: 2.5em;
 
-  /* Defines properties related to the CSS Box Model */
-  margin-bottom: 30px;
+    /* 定义与 CSS 盒模型相关的属性 */
+    margin-bottom: 30px;
 }
 
-/* Styles for the task list (unordered list) */
+/* 任务列表（无序列表）的样式 */
 ul {
-  /* Defines properties related to the CSS Box Model */
-  padding: 0;
-  max-height: 450px; /* Set a max height for the list to enable scrolling */
-  overflow-y: auto; /* Enable vertical scrolling when content overflows */
-  padding-right: 10px; /* Add some padding for the scrollbar */
+    /* 定义与 CSS 盒模型相关的属性 */
+    padding: 0;
+    max-height: 450px; /* 为列表设置最大高度以启用滚动 */
+    overflow-y: auto; /* 当内容溢出时启用垂直滚动 */
+    padding-right: 10px; /* 为滚动条添加一些内边距 */
 
-  /* Defines properties for the element's own appearance */
-  list-style: none;
+    /* 定义元素自身外观的属性 */
+    list-style: none;
 }
 
-/* Styles for individual task items */
+/* 单个任务项的样式 */
 .task-item {
-  /* Defines properties related to the CSS Box Model */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 20px;
-  margin-bottom: 10px;
+    /* 定义与 CSS 盒模型相关的属性 */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    margin-bottom: 10px;
 
-  /* Defines properties for the element's own appearance */
-  background-color: #f9f9f9;
-  border: 1px solid #eee;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
+    /* 定义元素自身外观的属性 */
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
 }
 
-/* Hover effect for task items */
+/* 任务项的悬停效果 */
 .task-item:hover {
-  background-color: #f0f0f0;
+    background-color: #f0f0f0;
 }
 
-/* Styles for completed task items */
+/* 已完成任务项的样式 */
 .task-item.completed {
-  text-decoration: line-through;
-  color: #888;
-  background-color: #e9e9e9;
+    text-decoration: line-through;
+    color: #888;
+    background-color: #e9e9e9;
 }
 
-/* Styles for the task item checkbox */
+/* 任务项复选框的样式 */
 .task-item-checkbox {
-  margin-right: 20px;
-  transform: scale(1.4); /* Slightly increased size for better usability */
+    margin-right: 20px;
+    transform: scale(1.4); /* 略微增大的尺寸以提高可用性 */
 }
 
-/* Styles for task item buttons */
+/* 任务项按钮的样式 */
 .task-item-button {
-  /* Defines properties related to the CSS Box Model */
-  padding: 8px 15px;
-  margin-left: 15px;
+    /* 定义与 CSS 盒模型相关的属性 */
+    padding: 8px 15px;
+    margin-left: 15px;
 
-  /* Defines properties related to text styling */
-  font-size: 1em;
+    /* 定义与文本样式相关的属性 */
+    font-size: 1em;
 
-  /* Defines properties for the element's own appearance */
-  background-color: #007bff;
-  color: white;
-  border: 0; /* Use 0 instead of none for consistency */
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+    /* 定义元素自身外观的属性 */
+    background-color: #007bff;
+    color: white;
+    border: 0; /* 为保持一致性，使用 0 而不是 none */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-/* Hover effect for task item buttons */
+/* 任务项按钮的悬停效果 */
 .task-item-button:hover {
-  background-color: #0056b3;
+    background-color: #0056b3;
 }
 
-/* Styles for grouping task item buttons */
+/* 分组任务项按钮的样式 */
 .task-item-button-group {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
-/* Margin between adjacent task item buttons */
+/* 相邻任务项按钮之间的边距 */
 .task-item-button + .task-item-button {
-  margin-left: 10px;
+    margin-left: 10px;
 }
 
-/* Styles for the add task form */
+/* 添加任务表单的样式 */
 form {
-  /* Defines properties related to the CSS Box Model */
-  margin-bottom: 30px;
-  display: flex;
-  gap: 15px;
+    /* 定义与 CSS 盒模型相关的属性 */
+    margin-bottom: 30px;
+    display: flex;
+    gap: 15px;
 }
 
-/* Styles for the text input in the form */
+/* 表单中文本输入框的样式 */
 form input[type="text"] {
-  /* Defines properties related to the CSS Box Model */
-  flex-grow: 1;
-  padding: 12px 15px;
+    /* 定义与 CSS 盒模型相关的属性 */
+    flex-grow: 1;
+    padding: 12px 15px;
 
-  /* Defines properties for the element's own appearance */
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1.1em;
+    /* 定义元素自身外观的属性 */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1.1em;
 }
 
-/* Styles for the submit button in the form */
+/* 表单中提交按钮的样式 */
 form button[type="submit"] {
-  /* Defines properties related to the CSS Box Model */
-  padding: 12px 25px;
+    /* 定义与 CSS 盒模型相关的属性 */
+    padding: 12px 25px;
 
-  /* Defines properties related to text styling */
-  font-size: 1.1em;
+    /* 定义与文本样式相关的属性 */
+    font-size: 1.1em;
 
-  /* Defines properties for the element's own appearance */
-  border-radius: 8px;
-  background-color: #28a745;
+    /* 定义元素自身外观的属性 */
+    border-radius: 8px;
+    background-color: #28a745;
 }
 
-/* Hover effect for the form submit button */
+/* 表单提交按钮的悬停效果 */
 form button[type="submit"]:hover {
-  background-color: #218838;
+    background-color: #218838;
 }
 
-/* Styles for loading message */
+/* 加载消息的样式 */
 .loading-message {
-  /* Defines properties related to text styling */
-  text-align: center;
-  font-size: 1.2em;
-  color: #555;
+    /* 定义与文本样式相关的属性 */
+    text-align: center;
+    font-size: 1.2em;
+    color: #555;
 
-  /* Defines properties related to the CSS Box Model */
-  padding: 25px;
+    /* 定义与 CSS 盒模型相关的属性 */
+    padding: 25px;
 }
 
-/* Styles for error message */
+/* 错误消息的样式 */
 .error-message {
-  /* Defines properties related to text styling */
-  color: #dc3545;
+    /* 定义与文本样式相关的属性 */
+    color: #dc3545;
 
-  /* Inherits other styles from .loading-message */
-  text-align: center;
-  font-size: 1.2em;
-  padding: 25px;
+    /* 继承 .loading-message 的其他样式 */
+    text-align: center;
+    font-size: 1.2em;
+    padding: 25px;
 }

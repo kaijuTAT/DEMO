@@ -3,105 +3,105 @@ import type { Task } from '../types';
 import { ref } from 'vue';
 
 /**
- * Props interface for the TaskItem component.
- * @property task - The task object to display.
+ * TaskItem 组件的 props 接口。
+ * @property task - 要显示的任务对象。
  */
 interface TaskItemProps {
-  task: Task;
+    task: Task;
 }
 
 /**
- * Defines the props received by this component.
+ * 定义该组件接收的 props。
  */
 const props = defineProps<TaskItemProps>();
 
 /**
- * Defines the events that this component can emit.
- * @event toggleComplete - Emitted when the task's completion status is toggled.
- * @event delete - Emitted when the task is to be deleted.
- * @event edit - Emitted when the task's title is edited.
+ * 定义该组件可以发出的事件。
+ * @event toggleComplete - 当任务的完成状态切换时发出。
+ * @event delete - 当任务需要被删除时发出。
+ * @event edit - 当任务的标题被编辑时发出。
  */
 const emit = defineEmits<{ 
-  (e: 'toggleComplete', id: number): void; 
-  (e: 'delete', id: number): void; 
-  (e: 'edit', id: number, newTitle: string): void; 
+    (e: 'toggleComplete', id: number): void; 
+    (e: 'delete', id: number): void; 
+    (e: 'edit', id: number, newTitle: string): void; 
 }>();
 
-// Reactive state to manage the editing mode of the task item.
+// 管理任务项编辑模式的响应式状态。
 const isEditing = ref(false);
-// Reactive state to hold the new title during editing.
+// 在编辑期间持有新标题的响应式状态。
 const newTitle = ref(props.task.title);
 
 /**
- * Handles the click event for the Edit button.
- * Sets the component into editing mode.
+ * 处理“编辑”按钮的点击事件。
+ * 将组件设置为编辑模式。
  */
 const handleEdit = () => {
-  isEditing.value = true;
+    isEditing.value = true;
 };
 
 /**
- * Handles the click event for the Save button during editing.
- * Validates the new title, emits the 'edit' event, and exits editing mode.
+ * 处理编辑期间“保存”按钮的点击事件。
+ * 验证新标题，发出 'edit' 事件，并退出编辑模式。
  */
 const handleSave = () => {
-  // Prevent saving an empty task title.
-  if (!newTitle.value.trim()) {
-    alert('任务标题不能为空！');
-    return;
-  }
-  emit('edit', props.task.id, newTitle.value);
-  isEditing.value = false;
+    // 防止保存空的任务标题。
+    if (!newTitle.value.trim()) {
+        alert('任务标题不能为空！');
+        return;
+    }
+    emit('edit', props.task.id, newTitle.value);
+    isEditing.value = false;
 };
 
 /**
- * Handles the click event for the Cancel button during editing.
- * Resets the new title to the original task title and exits editing mode.
+ * 处理编辑期间“取消”按钮的点击事件。
+ * 将新标题重置为原始任务标题，并退出编辑模式。
  */
 const handleCancel = () => {
-  newTitle.value = props.task.title;
-  isEditing.value = false;
+    newTitle.value = props.task.title;
+    isEditing.value = false;
 };
 
 /**
- * Handles the click event for the Delete button.
- * Prompts for confirmation before emitting the 'delete' event.
+ * 处理“删除”按钮的点击事件。
+ * 在发出 'delete' 事件前弹出确认提示。
  */
 const handleDeleteClick = () => {
-  if (confirm('确定要删除此任务吗？')) {
-    emit('delete', props.task.id);
-  }
+    if (confirm('确定要删除此任务吗？')) {
+        emit('delete', props.task.id);
+    }
 };
 </script>
 
 <template>
-  <li :class="[`task-item`, { completed: props.task.completed }]">
-    <input
-      type="checkbox"
-      :checked="props.task.completed"
-      @change="emit('toggleComplete', props.task.id)"
-      class="task-item-checkbox"
-    />
-    <input
-      v-if="isEditing"
-      type="text"
-      v-model="newTitle"
-    />
-    <span v-else>{{ props.task.title }}</span>
+    <li :class="[`task-item`, { completed: props.task.completed }]">
+        <input
+            type="checkbox"
+            :checked="props.task.completed"
+            @change="emit('toggleComplete', props.task.id)"
+            class="task-item-checkbox"
+        />
+        <input
+            v-if="isEditing"
+            type="text"
+            v-model="newTitle"
+        />
+        <span v-else>{{ props.task.title }}</span>
 
-    <div class="task-item-button-group">
-      <template v-if="isEditing">
-        <button @click="handleSave" class="task-item-button">保存</button>
-        <button @click="handleCancel" class="task-item-button">取消</button>
-      </template>
-      <template v-else>
-        <button @click="handleEdit" class="task-item-button">编辑</button>
-        <button @click="handleDeleteClick" class="task-item-button">删除</button>
-      </template>
-    </div>
-  </li>
+        <div class="task-item-button-group">
+            <template v-if="isEditing">
+                <button @click="handleSave" class="task-item-button">保存</button>
+                <button @click="handleCancel" class="task-item-button">取消</button>
+            </template>
+            <template v-else>
+                <button @click="handleEdit" class="task-item-button">编辑</button>
+                <button @click="handleDeleteClick" class="task-item-button">删除</button>
+            </template>
+        </div>
+    </li>
 </template>
 
 <style scoped>
-/* You can add component-specific styles here if needed */
+/* 如果需要，可以在这里添加组件特定的样式 */
 </style>
