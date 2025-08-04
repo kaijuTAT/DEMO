@@ -1,0 +1,139 @@
+/* 全局样式 */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #1f2d3d;
+}
+
+/* 表单和输入框样式 */
+form,
+.search-input {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    flex-grow: 1;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1.1em;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #409eff;
+    box-shadow: 0 0 0 2px rgba(64, 158, 255, 0.2);
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    background-color: #409eff;
+    color: white;
+    border-radius: 8px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #66b1ff;
+}
+
+.search-input {
+    width: 100%;
+}
+
+/* 提示信息 */
+.loading-message,
+.error-message {
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.loading-message {
+    color: #909399;
+}
+
+.error-message {
+    color: #f56c6c;
+    background-color: #fef0f0;
+}
+
+/* 任务列表 */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 5px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+}
+
+.task-item:last-child {
+    border-bottom: none;
+}
+
+.task-item.completed .task-title {
+    text-decoration: line-through;
+    color: #909399;
+}
+
+.task-item-checkbox {
+    margin-right: 15px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.task-title {
+    flex-grow: 1;
+    font-size: 1.1em;
+}
+
+.task-item-button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.task-item-button {
+    padding: 5px 10px;
+    border: 1px solid #dcdfe6;
+    background-color: #fff;
+    color: #606266;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.task-item-button:hover {
+    border-color: #409eff;
+    color: #409eff;
+}
