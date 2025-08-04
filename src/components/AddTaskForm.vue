@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 
 /**
- * 定义该组件可以发出的事件。
+ * @desc 定义该组件可以发出的事件。
  * @event addTask - 当需要添加新任务时发出，携带任务标题。
  */
 const emit = defineEmits<{ (e: 'addTask', title: string): void }>();
@@ -11,9 +11,9 @@ const emit = defineEmits<{ (e: 'addTask', title: string): void }>();
 const title = ref('');
 
 /**
- * 处理表单提交事件。
- * 阻止默认的表单提交，验证输入，
- * 弹出确认提示，发出 'addTask' 事件，并清除输入框。
+ * @desc 处理表单提交事件。
+ *       阻止默认的表单提交，验证输入，
+ *       弹出确认提示，发出 'addTask' 事件，并清除输入框。
  */
 const handleSubmit = () => {
     // 防止添加空任务。

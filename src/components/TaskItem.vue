@@ -3,7 +3,7 @@ import type { Task } from '../types';
 import { ref } from 'vue';
 
 /**
- * TaskItem 组件的 props 接口。
+ * @desc TaskItem 组件的 props 接口。
  * @property task - 要显示的任务对象。
  */
 interface TaskItemProps {
@@ -11,12 +11,12 @@ interface TaskItemProps {
 }
 
 /**
- * 定义该组件接收的 props。
+ * @desc 定义该组件接收的 props。
  */
 const props = defineProps<TaskItemProps>();
 
 /**
- * 定义该组件可以发出的事件。
+ * @desc 定义该组件可以发出的事件。
  * @event toggleComplete - 当任务的完成状态切换时发出。
  * @event delete - 当任务需要被删除时发出。
  * @event edit - 当任务的标题被编辑时发出。
@@ -33,16 +33,16 @@ const isEditing = ref(false);
 const newTitle = ref(props.task.title);
 
 /**
- * 处理“编辑”按钮的点击事件。
- * 将组件设置为编辑模式。
+ * @desc 处理“编辑”按钮的点击事件。
+ *       将组件设置为编辑模式。
  */
 const handleEdit = () => {
     isEditing.value = true;
 };
 
 /**
- * 处理编辑期间“保存”按钮的点击事件。
- * 验证新标题，发出 'edit' 事件，并退出编辑模式。
+ * @desc 处理编辑期间“保存”按钮的点击事件。
+ *       验证新标题，发出 'edit' 事件，并退出编辑模式。
  */
 const handleSave = () => {
     // 防止保存空的任务标题。
@@ -55,8 +55,8 @@ const handleSave = () => {
 };
 
 /**
- * 处理编辑期间“取消”按钮的点击事件。
- * 将新标题重置为原始任务标题，并退出编辑模式。
+ * @desc 处理编辑期间“取消”按钮的点击事件。
+ *       将新标题重置为原始任务标题，并退出编辑模式。
  */
 const handleCancel = () => {
     newTitle.value = props.task.title;
@@ -64,8 +64,8 @@ const handleCancel = () => {
 };
 
 /**
- * 处理“删除”按钮的点击事件。
- * 在发出 'delete' 事件前弹出确认提示。
+ * @desc 处理“删除”按钮的点击事件。
+ *       在发出 'delete' 事件前弹出确认提示。
  */
 const handleDeleteClick = () => {
     if (confirm('确定要删除此任务吗？')) {
@@ -91,12 +91,32 @@ const handleDeleteClick = () => {
 
         <div class="task-item-button-group">
             <template v-if="isEditing">
-                <button @click="handleSave" class="task-item-button">保存</button>
-                <button @click="handleCancel" class="task-item-button">取消</button>
+                <button 
+                    @click="handleSave" 
+                    class="task-item-button"
+                >
+                    保存
+                </button>
+                <button 
+                    @click="handleCancel" 
+                    class="task-item-button"
+                >
+                    取消
+                </button>
             </template>
             <template v-else>
-                <button @click="handleEdit" class="task-item-button">编辑</button>
-                <button @click="handleDeleteClick" class="task-item-button">删除</button>
+                <button 
+                    @click="handleEdit" 
+                    class="task-item-button"
+                >
+                    编辑
+                </button>
+                <button 
+                    @click="handleDeleteClick" 
+                    class="task-item-button"
+                >
+                    删除
+                </button>
             </template>
         </div>
     </li>

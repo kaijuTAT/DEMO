@@ -3,9 +3,9 @@ import type { Task } from '../types';
 import { getTasks, addTaskApi, updateTaskApi, deleteTaskApi } from '../services/taskApi';
 
 /**
- * 定义用于管理任务的 Pinia store。
- * 它处理获取、添加、更新和删除任务，
- * 并管理加载和错误状态。
+ * @desc 定义用于管理任务的 Pinia store。
+ *       它处理获取、添加、更新和删除任务，
+ *       并管理加载和错误状态。
  */
 export const useTaskStore = defineStore('task', {
     state: () => ({
@@ -15,8 +15,8 @@ export const useTaskStore = defineStore('task', {
     }),
     actions: {
         /**
-         * 从 API 获取任务并更新 store 的状态。
-         * 设置加载状态，处理潜在错误，并填充任务数组。
+         * @desc 从 API 获取任务并更新 store 的状态。
+         *       设置加载状态，处理潜在错误，并填充任务数组。
          */
         async fetchTasks() {
             this.loading = true;
@@ -33,9 +33,9 @@ export const useTaskStore = defineStore('task', {
         },
 
         /**
-         * 将新任务添加到任务列表。
-         * 调用 API 添加任务，然后重新获取整个列表以确保一致性。
-         * @param title 要添加的新任务的标题。
+         * @desc 将新任务添加到任务列表。
+         *       调用 API 添加任务，然后重新获取整个列表以确保一致性。
+         * @param { string } title - 要添加的新任务的标题。
          */
         async addTask(title: string) {
             console.log('taskStore: addTask 操作已调用。');
@@ -53,9 +53,9 @@ export const useTaskStore = defineStore('task', {
         },
 
         /**
-         * 切换任务的完成状态。
-         * 调用 API 更新任务，然后重新获取整个列表。
-         * @param id 要切换的任务的 ID。
+         * @desc 切换任务的完成状态。
+         *       调用 API 更新任务，然后重新获取整个列表。
+         * @param { number } id - 要切换的任务的 ID。
          */
         async toggleComplete(id: number) {
             const taskToUpdate = this.tasks.find(task => task.id === id);
@@ -74,10 +74,10 @@ export const useTaskStore = defineStore('task', {
         },
 
         /**
-         * 编辑现有任务的标题。
-         * 调用 API 更新任务，然后重新获取整个列表。
-         * @param id 要编辑的任务的 ID。
-         * @param newTitle 任务的新标题。
+         * @desc 编辑现有任务的标题。
+         *       调用 API 更新任务，然后重新获取整个列表。
+         * @param { number } id - 要编辑的任务的 ID。
+         * @param { string } newTitle - 任务的新标题。
          */
         async editTask(id: number, newTitle: string) {
             const taskToUpdate = this.tasks.find(task => task.id === id);
@@ -96,10 +96,10 @@ export const useTaskStore = defineStore('task', {
         },
 
         /**
-         * 从任务列表中删除任务。
-         * 调用 API 删除任务，然后通过筛选更新本地状态。
-         * 注意：对于删除，直接筛选通常就足够了，因为项目已被移除。
-         * @param id 要删除的任务的 ID。
+         * @desc 从任务列表中删除任务。
+         *       调用 API 删除任务，然后通过筛选更新本地状态。
+         *       注意：对于删除，直接筛选通常就足够了，因为项目已被移除。
+         * @param { number } id - 要删除的任务的 ID。
          */
         async deleteTask(id: number) {
             try {
