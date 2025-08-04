@@ -77,11 +77,14 @@ document.querySelector(Selectors.TASK_FORM).addEventListener('submit', (e) => {
         return;
     }
 
-    const task = new Task(title);
-    Store.addTask(task);
-    UI.addTaskToLi(task);
-    UI.clearInputField();
-    UI.hideMessages();
+    // 添加任务前弹出确认对话框
+    if (confirm('确定要添加此任务吗？')) {
+        const task = new Task(title);
+        Store.addTask(task);
+        UI.addTaskToLi(task);
+        UI.clearInputField();
+        UI.hideMessages();
+    }
 });
 
 // 事件委托：处理任务列表中的所有点击事件
