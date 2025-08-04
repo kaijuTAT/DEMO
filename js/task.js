@@ -1,26 +1,16 @@
 /**
  * @class Task
- * @desc 创建一个任务对象，作为应用的数据模型。
+ * @desc 任务数据模型。定义了任务对象的基本结构。
  */
 class Task {
     /**
-     * @param {string} title - 任务的标题。
-     * @param {boolean} [completed=false] - 任务是否完成，默认为 false。
+     * @param {string} title - 任务标题。
+     * @param {boolean} [completed=false] - 任务完成状态，默认为 false。
      */
     constructor(title, completed = false) {
-        /**
-         * @property {number} id - 任务的唯一标识符，使用时间戳生成。
-         */
+        // 使用时间戳作为唯一 ID，简单且有效。
         this.id = Date.now();
-
-        /**
-         * @property {string} title - 任务的标题。
-         */
         this.title = title;
-
-        /**
-         * @property {boolean} completed - 任务的完成状态。
-         */
         this.completed = completed;
     }
 }
